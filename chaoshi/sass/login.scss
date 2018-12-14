@@ -1,0 +1,91 @@
+.containerLog{
+    padding: 0 15px;
+    .form-signin{
+        max-width: 330px;
+        margin: 100px auto 0;
+        background: #fff;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        .form-signin-heading{
+            margin: 0;
+            padding: 20px 15px;
+            text-align: center;
+            background: #41cac0;
+            border-radius: 5px 5px 0 0;
+            -webkit-border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .login-wrap{
+            padding: 20px;
+            // position: relative;
+            input{
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border: 1px solid #eaeaea;
+                box-shadow: none;
+                font-size: 12px;
+                margin-top: 15px;
+            }
+            input::-webkit-input-placeholder { /* WebKit browsers */  
+                color: #ccc;  
+              }
+            .thenametrue{
+                // position: absolute;
+                // z-index: 1000;
+                display: none;
+                font-size: 12px;
+                padding-left: 10px;
+            }
+            .thename{
+                display: none;
+                font-size: 12px;
+                padding-left: 10px;
+            }
+            .form-control{
+                position: relative;
+                font-size: 16px;
+                height: auto;
+                padding: 10px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                display: block;
+                width: 100%;
+            }
+            .checkbox{
+                color: #b6b6b6;
+                font-weight: 300;
+                font-family: 'Open Sans', sans-serif;
+                display: block;
+                min-height: 20px;
+                // padding-left: 20px;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                vertical-align: middle;
+            }
+            .thecheck{
+                margin: 3px 0 0;
+                // margin-left: -20px;
+            }
+        }
+        .btn{
+            background: #f67a6e;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-family: 'Open Sans', sans-serif;
+            box-shadow: 0 4px #e56b60;
+            margin-bottom: 20px;
+            display: block;
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            border-radius: 6px;
+        }
+    }
+}

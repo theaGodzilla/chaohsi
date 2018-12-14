@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    
+</head>
+<body style="background:#f1f2f7">
+    <div class="containerLog">
+        <!-- action="../index.html" -->
+        <form  class="form-signin">
+            <h2 class="form-signin-heading">
+                <p>注册</p>
+            </h2>
+            <div class="login-wrap">
+
+                <input type="text" class="form-control username" style="margin-top:0" placeholder="请输入您的邮箱">
+                <span class="thenametrue" style="top:59px"></span>
+                <span class="thename"></span>
+
+                <input type="password" class="form-control password" placeholder="请输入密码">
+                <span class="passwordtrue" style="top:113px"></span>
+
+                <input type="password" class="form-control wordagan" placeholder="请再次输入密码">
+                <span class="wordagantrue" style="top:168px"></span>
+
+                <label class="checkbox">
+                    <input type="password" class="form-control thecheck" placeholder="请输入您获得的验证码">
+                    <!-- <input type="checkbox" value="" class="fl thecheck">记住我 -->
+                    <!-- <span class="fl"></span> -->
+                    <!-- <span class="fr">忘记密码？</span> -->
+                </label>
+                <button class="btn btn-lg btn-login btn-block" onclick="return nosub()">注册</button>
+                <!-- <p class="orther">或者您可以通过社交网络登录</p> -->
+                <script>
+                    //阻止表单默认提交
+                    function nosub(){
+                        return false;
+                    }
+                    let username=document.querySelector('.username');
+                    let password=document.querySelector('.password');
+                    let wordagan=document.querySelector('.wordagan');
+                    let thenametrue=document.querySelector('.thenametrue');
+                    let passwordtrue=document.querySelector('.passwordtrue');
+                    let wordagantrue=document.querySelector('.wordagantrue');
+                    let thename=document.querySelector('.thename');
+                    let btn=document.querySelector('.btn');
+                    var status=[200,404];
+                    //用户名检测
+
+                    let nameok=false;
+                    let checknameok = false;
+                    username.onblur=function(){
+                        var xhr = new XMLHttpRequest();
+                        xhr.onload=function(){
+                            if( status.includes(xhr.status) ){
+                                var res = JSON.parse(xhr.responseText);
+                                console.log(res);
+                                if( res.code == 1 ){
+                                    thenametrue.style.display='inline-block';
+                                    thenametrue.innerHTML=res.msg;
+                                    thenametrue.style.color='green';
+                                    checknameok = true;
+                                }else{
+                                    thenametrue.style.display='block';
+                                    thenametrue.innerHTML=res.msg;
+                                    thenametrue.style.color='red';
+                                    checknameok = false;
+                                }
+                            }
+                            //正则
+                            if(checknameok){
+                                var val1=checkReg.trim(username.value);
+                                if(val1 && checkReg.email(val1)){
+                                    thename.style.display='inline-block';
+                                    thename.innerHTML='格式正确';
+                                    thename.style.color='green';
+                                }else{
+                                    thename.style.display='inline-block';
+                                    thename.innerHTML='格式错误';
+                                    thename.style.color='red';
+                                }
+                            }
+                        }
+                        xhr.open('GET','/checkname?username='+username.value,true);
+                        xhr.send();
+                    }
+                    
+                </script>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
